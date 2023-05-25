@@ -1,0 +1,20 @@
+
+from django.contrib import admin
+from django.urls import path
+from SM2 import views
+from django.contrib.auth.views import LogoutView,LoginView
+from django.urls import path,include
+
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+
+
+# Wire up our API using automatic URL routing.
+# Additionally, we include login URLs for the browsable API.
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    #path('SM1/', include('SM1.urls')),
+    path('',include('app_name.urls')),
+]
