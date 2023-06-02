@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path
-from SM2 import views
+from Car import views
 from django.contrib.auth.views import LogoutView,LoginView
 from django.urls import path,include
 
@@ -15,6 +15,5 @@ router = routers.DefaultRouter()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('SM1/', include('SM1.urls')),
-    path('',include('app_name.urls')),
+    path('',include('Car.urls')),
 ]

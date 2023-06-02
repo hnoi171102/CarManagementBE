@@ -1,0 +1,38 @@
+<h1>Inspection Center Dashboard</h1>
+
+<h2>Monthly Statistics</h2>
+<p>Number of inspections: {{ monthly_count }}</p>
+
+<h2>Monthly Inspections</h2>
+<ul>
+  {% for inspection in monthly_inspections %}
+    <li>{{ inspection }}</li>
+  {% empty %}
+    <li>No inspections</li>
+  {% endfor %}
+</ul>
+
+<h2>Expiring Inspections</h2>
+<ul>
+  {% for inspection in expiring_inspections %}
+    <li>{{ inspection }}</li>
+  {% empty %}
+    <li>No expiring inspections</li>
+  {% endfor %}
+</ul>
+
+<h2>New and Renewal Inspections</h2>
+<p>New inspections: {{ new_count }}</p>
+<p>Renewal inspections: {{ renewal_count }}</p>
+
+<h2>Record Inspection Result</h2>
+<form method="post" action="">
+  {% csrf_token %}
+  <label for="inspection_number">Inspection number:</label>
+  <input type="text" name="inspection_number" required><br>
+  <label for="inspection_date">Inspection date:</label>
+  <input type="date" name="inspection_date" required><br>
+  <label for="expiration_date">Expiration date:</label>
+  <input type="date" name="expiration_date" required><br>
+  <button type="submit">Record Result</button>
+</form>
